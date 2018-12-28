@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // Browser = Parent, Route = route, Switch = Error page
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
 import Header from './components/layout/Header';
@@ -26,7 +26,7 @@ class App extends Component {
    render() {
       return (
          <Provider>
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                <div className="App">
                   <Header branding="Contact Manager" />
                   <div className="container">
