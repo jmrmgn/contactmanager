@@ -8,13 +8,42 @@ class AddContact extends Component {
    state = {
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      errors: {}
    };   
 
    onSubmit = (dispatch, e) => {
       e.preventDefault();
       
       const { name, email, phone } = this.state;
+
+      // Field validations
+      if (name === '') {
+         this.setState({
+            errors: {
+               name: 'Name is required'
+            }
+         });
+         return;
+      }
+
+      if (email === '') {
+         this.setState({
+            errors: {
+               email: 'Email is required'
+            }
+         });
+         return;
+      }
+
+      if (phone === '') {
+         this.setState({
+            errors: {
+               phone: 'Phone is required'
+            }
+         });
+         return;
+      }
 
       const newContact = {
          id: uuid(),
@@ -29,7 +58,8 @@ class AddContact extends Component {
       this.setState({
          name: '',
          email: '',
-         phone: ''
+         phone: '',
+         errors: {}
       });
    };
 
@@ -40,7 +70,7 @@ class AddContact extends Component {
    };
 
    render() {
-      const { name, email, phone } = this.state;
+      const { name, email, phone, errors } = this.state;
 
       return (
          <Consumer>
@@ -58,6 +88,7 @@ class AddContact extends Component {
                               name="name"
                               value={name}
                               placeholder="Enter name..."
+                              error={errors.name}
                               onChange={this.onContactChange}
                            />
                            <TextInputGroup 
@@ -66,6 +97,7 @@ class AddContact extends Component {
                               name="email"
                               value={email}
                               placeholder="Enter email..."
+                              error={errors.email}
                               onChange={this.onContactChange}
                            />
                            <TextInputGroup 
@@ -73,6 +105,7 @@ class AddContact extends Component {
                               name="phone"
                               value={phone}
                               placeholder="Enter phone..."
+                              error={errors.phone}
                               onChange={this.onContactChange}
                            />
                            <input 
