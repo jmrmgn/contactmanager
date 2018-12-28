@@ -1,3 +1,9 @@
 .down-arrow:hover {
    cursor: pointer;
 }
+
+.delete-arrow {
+   cursor: pointer;
+   float: right;
+   color: red;
+}

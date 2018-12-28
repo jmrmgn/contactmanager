@@ -21,6 +21,7 @@ class Contact extends Component {
             <h4>
                {name}
                <i className="fas fa-sort-down ml-2 down-arrow" onClick={this.onShowClick} />
+               <i className="fas fa-times delete-arrow" onClick={this.props.deleteClickHandler} />
             </h4>
             { showContactInfo ? (
                <ul className="list-group">
@@ -34,7 +35,8 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-   contact: PropTypes.object.isRequired
+   contact: PropTypes.object.isRequired,
+   deleteClickHandler: PropTypes.func.isRequired
 };
 
 export default Contact;
