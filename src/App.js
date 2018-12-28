@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // Browser = Parent, Route = route, Switch = Error page
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
 import Header from './components/layout/Header';
