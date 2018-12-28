@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Consumer } from '../../context';
+import TextInputGroup from '../layout/TextInputGroup';
+
 import uuid from 'uuid';
 
 class AddContact extends Component {
@@ -51,39 +53,28 @@ class AddContact extends Component {
                      </div>
                      <div className="card-body">
                         <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-                           <div className="form-group">
-                              <label htmlFor="name">Name</label>
-                              <input 
-                                 type="text"
-                                 name="name"
-                                 className="form-control form-control-lg"
-                                 placeholder="Enter name..."
-                                 value={name}
-                                 onChange={this.onContactChange}
-                              />
-                           </div>
-                           <div className="form-group">
-                              <label htmlFor="email">Email</label>
-                              <input 
-                                 type="email"
-                                 name="email"
-                                 className="form-control form-control-lg"
-                                 placeholder="Enter email..."
-                                 value={email}
-                                 onChange={this.onContactChange}
-                              />
-                           </div>
-                           <div className="form-group">
-                              <label htmlFor="phone">Phone</label>
-                              <input 
-                                 type="text"
-                                 name="phone"
-                                 className="form-control form-control-lg"
-                                 placeholder="Enter phone..."
-                                 value={phone}
-                                 onChange={this.onContactChange}
-                              />
-                           </div>
+                           <TextInputGroup 
+                              label="Name"
+                              name="name"
+                              value={name}
+                              placeholder="Enter name..."
+                              onChange={this.onContactChange}
+                           />
+                           <TextInputGroup 
+                              label="Email"
+                              type="email"
+                              name="email"
+                              value={email}
+                              placeholder="Enter email..."
+                              onChange={this.onContactChange}
+                           />
+                           <TextInputGroup 
+                              label="Phone"
+                              name="phone"
+                              value={phone}
+                              placeholder="Enter phone..."
+                              onChange={this.onContactChange}
+                           />
                            <input 
                               type="submit"
                               value="Add Contact"
