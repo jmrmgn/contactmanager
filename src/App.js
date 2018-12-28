@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 // Browser = Parent, Route = route, Switch = Error page
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// Components
 import Header from './components/layout/Header';
 import About from './components/pages/About';
 import Contacts from './components/contacts/Contacts';
 import AddContact from './components/contacts/AddContact';
 
+// Not Found Component
+import NotFound from './components/pages/NotFound';
+
+// Provider for Context
 import { Provider } from './context';
 
+// Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -23,6 +30,7 @@ class App extends Component {
                         <Route exact path="/" component={Contacts} />
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact/add" component={AddContact} />
+                        <Route component={NotFound} />
                      </Switch>
                   </div>
                </div>
