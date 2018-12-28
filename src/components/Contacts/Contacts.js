@@ -13,6 +13,9 @@ class Contacts extends Component {
                const { contacts } = value;
                return (
                   <React.Fragment>
+                     <h1 className="display mb-2">
+                        <span className="text-danger">Contact List</span>
+                     </h1>
                      {
                         contacts.map(contact => {
                            return (
