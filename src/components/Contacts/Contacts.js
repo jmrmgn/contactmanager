@@ -17,7 +17,8 @@ class Contacts extends Component {
                         <span className="text-danger">Contact</span> List
                      </h1>
                      {
-                        contacts.map(contact => {
+                        contacts.length > 0 
+                        ? contacts.map(contact => {
                            return (
                               <Contact 
                                  key={contact.id}
@@ -25,6 +26,10 @@ class Contacts extends Component {
                               />
                            );
                         })
+                        :
+                        <div className="text-center">
+                           <h3 className="text-muted">Loading...</h3>
+                        </div>
                      }
                   </React.Fragment>
                )
